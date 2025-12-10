@@ -5,22 +5,22 @@
   block:
 
   # flatpak
-  - when: gimp.flatpak.state != None
+  - when: gimp_flatpak_state != None
     block:
     
-    - name: Flatpak state {{ gimp.flatpak.state }}
+    - name: Flatpak org.gimp.GIMP -> {{ gimp_flatpak_state }}
       become: true
       community.general.flatpak:
         name: org.gimp.GIMP
-        method: "{{ gimp.flatpak.scope }}" 
-        state: "{{ gimp.flatpak.state }}"
+        method: "{{ gimp_flatpak_scope }}" 
+        state: "{{ gimp_flatpak_state }}"
   
   # apt
-  - when: gimp.apt.state != None
+  - when: gimp_apt_state != None
     block:
     
-    - name: Apt state {{ gimp.apt.state }}
+    - name: Apt gimp -> {{ gimp_apt_state }}
       become: true
       ansible.builtin.apt:
         name: gimp
-        state: "{{ gimp.apt.state }}"
+        state: "{{ gimp_apt_state }}"

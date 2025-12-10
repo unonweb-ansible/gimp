@@ -1,7 +1,4 @@
 ---
-gimp:
-  flatpak:
-    state:
-    scope: system
-  apt:
-    state:
+gimp_flatpak_state:
+gimp_flatpak_scope: system
+gimp_apt_state:
